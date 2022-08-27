@@ -1,0 +1,106 @@
+/*ヘッダーのボタンCSS*/
+.gnavi{
+    display: flex;
+    flex-wrap: wrap;/*スマホ表示折り返し用なのでPCのみなら不要*/
+    margin:0 0 50px 0;
+    list-style: none;
+    position:fixed;
+    
+}
+
+.gnavi li a{
+    display: block;
+    padding:10px 30px;
+    text-decoration: none;
+    color: #333;
+}
+
+.gnavi li{
+    margin-bottom:20px;
+}
+
+/*==================================================
+　5-3-1 中心から外に線が伸びる（下部）
+===================================*/
+
+.gnavi li a{
+    /*線の基点とするためrelativeを指定*/
+	position: relative;
+}
+
+.gnavi li.current a,
+.gnavi li a:hover{
+	color:#07f2fa;
+}
+
+.gnavi li a::after {
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    /*線の形状*/
+    width: 80%;
+    height: 2px;
+    background: #07f2fa;
+    /*アニメーションの指定*/
+    transition: all .3s;
+    transform: scale(0, 1);/*X方向0、Y方向1*/
+    transform-origin: center top;/*上部中央基点*/
+}
+
+/*現在地とhoverの設定*/
+.gnavi li.current a::after,
+.gnavi li a:hover::after {
+    transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+
+/*ヘッダーのタイトル*/
+
+
+.name{
+    padding-top: 100px;
+}
+
+
+.main_text{
+    color: #333;
+}
+
+
+/*流体シェイプのCSS*/
+
+.fluid{
+    width:40vh;
+    height:40vh;
+    background:#07f2fa;
+    animation: fluidrotate 30s ease 0s infinite;
+}
+
+@keyframes fluidrotate {  
+	  
+    0%, 100% {
+        border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    }
+    14% {
+        border-radius: 40% 60% 54% 46%/49% 60% 40% 51%;
+    }
+    28% {
+        border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    }
+    42% {
+        border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+    }
+    56% {
+        border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    }
+    70% {
+        border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+    }
+    84% {
+        border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    }
+          
+    }
+
+
